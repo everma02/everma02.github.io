@@ -10,7 +10,7 @@ import pyjokes
 app = Flask(__name__)
 
 @app.route("/v1/joke")
-def get_joke():
+def get_joke(joke):
     joke = pyjokes.get_joke()
     res = Response(json.dumps({"joke": joke}))
     res.headers["Access-Control-Allow-Origin"] = "*"

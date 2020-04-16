@@ -4,12 +4,12 @@
 /* jshint jquery: true */
 'use strict';
 
-const base_url = "http://everma02.pythonanywhere.com/"
+const base_url = "https://everma02.pythonanywhere.com/"
 
-async function requestJoke(joke) {
-    return await fetch(`${base_url}/v1/${joke}`)
+async function requestJoke(jokes) {
+    return await fetch(`${base_url}/v1/${jokes}`)
     .then(response => response.json())
-    .then(json => printData(json[joke]))
+    .then(json => printData(json[jokes]))
     .catch(error => console.log(error))
 }
 

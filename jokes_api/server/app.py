@@ -4,15 +4,18 @@ jokes api
 """
 
 import json
-from flask import Flask, Response, request, render_template, url_for, make_response, redirect
+from flask import Flask, Response
 import pyjokes
 
 app = Flask(__name__)
-#joke=Joke()
 
-@app.route("/")
+@app.route("/v1/jokes")
 def get_joke():
-    return pyjokes.get_joke()
+    joke = pyjokes.get_joke()
+    res = Response(json.dumps({"joke": joke}))
+    res.headers["Access-Control-Allow-Origin"] = "*"
+    res.headers["Content-Type"] = "application/json"
+    return res
 
 if __name__ == "__main__":
     app.run("0.0.0.0")

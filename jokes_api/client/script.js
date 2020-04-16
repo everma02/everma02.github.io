@@ -7,7 +7,7 @@
 const base_url = "https://everma02.pythonanywhere.com/"
 
 async function requestJoke(joke) {
-    return await fetch(`${base_url}/v1/${joke}`)
+    return await fetch(`${base_url}v1/${joke}`)
     .then(response => response.json())
     .then(json => printData(json[joke]))
     .catch(error => console.log(error))

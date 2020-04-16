@@ -9,7 +9,7 @@ import pyjokes
 
 app = Flask(__name__)
 
-@app.route("/v1/jokes")
+@app.route("/v1/joke")
 def get_joke():
     joke = pyjokes.get_joke()
     res = Response(json.dumps({"joke": joke}))
